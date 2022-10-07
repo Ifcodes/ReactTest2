@@ -64,9 +64,7 @@ export const deleteContractForm =
   (formId: any) =>
   async (dispatch: any, _getState = null, utils: any) => {
     // enable the spinner
-    dispatch(addingContractForm(true));
-    console.log({ project });
-    const response = await handleApiRequest(dispatch, utils.Api.post(`/contract-forms`, { ...project }));
+    const response = await handleApiRequest(dispatch, utils.Api.post(`/contract-forms/${formId}`));
 
     if (response?.data) {
       const { data } = response;
