@@ -37,6 +37,7 @@ import { PhotoShareSplashView } from 'Containers/Public/PhotoShare/PhotoShareSpl
 // dashboard components
 import { CreateProjectMain, Projects } from 'Containers/Projects';
 import { People } from 'Containers/People';
+import { Forms } from 'Containers/Forms';
 import { Crew } from 'Containers/Crew';
 import { Project } from 'Containers/Project';
 import { Account, About } from 'Containers/User';
@@ -53,6 +54,7 @@ import { NotesProvider } from 'Context/Notes';
 import { PhotoReport, DryingReport, ReportsAndDocuments } from 'Containers/ReportsAndDocuments';
 import { PrivateRoute } from './PrivateRoutes';
 import { PublicRoute } from './PublicRoutes';
+import { Form } from 'Containers/Form';
 
 // Render Props.  Create here to prevent a rerender, on a route change, due to arrow functions always being considered new
 const signInHowRoute = () => (
@@ -179,6 +181,13 @@ const EditAddressRoute = () => (
 const PeopleRoute = () => (
   <DashboardWrapper>
     <People />
+  </DashboardWrapper>
+);
+
+// form related routes
+const FormRoute = () => (
+  <DashboardWrapper>
+    <Forms />
   </DashboardWrapper>
 );
 
@@ -377,6 +386,8 @@ export const Routes = () => (
       <PrivateRoute exact path="/projects/:projectId/reports/generate/drying" render={GenerateDryingReportRoute} />
 
       <PrivateRoute exact path="/people" render={PeopleRoute} />
+
+      <PrivateRoute exact path="/forms" render={FormRoute} />
 
       <PrivateRoute exact path="/user/account" render={AccountRoute} />
       <PrivateRoute exact path="/user/about" render={AboutRoute} />

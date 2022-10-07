@@ -55,6 +55,7 @@ import { lossDataReducer } from 'Containers/ProjectData/LossData/reducer';
 import { propertyDataReducer } from 'Containers/ProjectData/PropertyData/reducer';
 import { reportsReducer } from 'Containers/ReportsAndDocuments';
 import { rocketDryReducer } from 'Containers/RocketDry/reducer';
+import { formsReducer } from 'Containers/Forms/reducer';
 
 // Combine them
 export default combineReducers({
@@ -89,6 +90,7 @@ export default combineReducers({
   dropzone: dropZoneReducer,
   dashboard: dashboardReducer,
   employees: employeesReducer,
+  forms: formsReducer,
   employeeInvite: employeeInviteReducer,
   contacts: contactsReducer,
   rocketScan: RocketScanReducer,

@@ -1,0 +1,51 @@
+.templateWrapper {
+  font-family: IBM Plex Sans;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 4rem;
+  min-height: 50vh;
+  padding: 0 2rem 2rem;
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.titleWrapper h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.titleWrapper button {
+  width: 8rem;
+  height: 2rem;
+  border: 1px solid #8101f2;
+  background-color: white;
+  border-radius: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8101f2;
+  margin-left: 1.5rem;
+}
+
+.tableWrapper {
+  margin-top: 1rem;
+}
+.templateWrapper .tableHead {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding-left: 2rem;
+  border-bottom: 1px solid #d2cfda;
+  padding-bottom: 0.5rem;
+}
+
+.listItemWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 1rem;
+  border-bottom: 1px solid #d2cfda;
+  padding-bottom: 0.5rem;
+  padding-left: 2rem;
+}

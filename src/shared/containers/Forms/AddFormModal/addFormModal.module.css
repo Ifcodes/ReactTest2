@@ -1,0 +1,120 @@
+.modalWrapper {
+  height: 80vh;
+  width: 100rem;
+}
+
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000000;
+  overflow-y: auto;
+  padding-bottom: 3rem;
+}
+
+.modalWrapper {
+  position: absolute;
+  top: 2rem;
+  padding: 1rem 2rem;
+  background-color: white;
+  width: 90%;
+  height: 100%;
+  transition: top 0.3s ease-out;
+}
+
+.closedModal {
+  display: none;
+}
+
+.hideModal {
+  top: -150px;
+}
+
+.titleCont {
+  display: flex;
+  align-items: center;
+}
+
+.titleCont h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+}
+.inputContainer label {
+  color: rgba(0, 0, 0, 0.8);
+}
+.inputContainer input {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 3px;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.checkBoxCont {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.checkBoxCont label {
+  margin-right: 1rem;
+}
+
+.templateInputWrapper {
+  display: grid;
+  grid-template-columns: 15rem 1fr;
+  height: 90%;
+}
+
+.tempListWrapper {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(154, 0, 255, 0.4);
+  border-radius: 3px;
+  padding: 0.5rem;
+}
+
+.templateInputWrapper textarea {
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  border: 1px solid rgba(154, 0, 255, 0.4);
+  outline: none;
+}
+
+h3 {
+  margin-top: 2rem;
+}
+
+.btnWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.btnPrimary {
+  background-color: rgba(154, 0, 255, 1);
+  color: white;
+  padding: 0.5rem 4rem;
+  border: none;
+  border-radius: 3px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.7rem;
+}
