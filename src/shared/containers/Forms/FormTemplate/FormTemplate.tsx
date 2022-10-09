@@ -13,6 +13,7 @@ import {
 import classes from './formTemplateStyles.module.css';
 import { AddFormModal } from '../AddFormModal';
 import { Spinner } from 'Components/Spinner';
+import { DateOfLossEdit } from 'Components/ProjectData';
 
 const FormListItem = memo(
   ({
@@ -28,13 +29,22 @@ const FormListItem = memo(
   }) => {
     const isDeleting = useSelector(deletingContractFormSelector, areEqual);
 
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    const date1 = new Date(created_at);
+    const month = date1.getMonth();
+    const day = date1.getDate();
+    const year = date1.getFullYear();
+
+    const dateCreated = `${months[Number(month)]} ${day}, ${year}`;
+
     return (
       <div className={classes.listItemWrapper}>
         <div>
           <span>{name}</span>
         </div>
         <div>
-          <span>{created_at}</span>
+          <span>{dateCreated}</span>
         </div>
         <div>
           <Icon type="trash" onClick={() => handleDelete(id)} />
