@@ -5,11 +5,15 @@ import { FORM_ERRORS } from 'Containers/Core/actions';
 export const SET_CONTRACT_FORMS = 'SET_CONTRACT_FORMS';
 export const FETCHING_CONTRACT_FORMS = 'FETCHING_CONTRACT_FORMS';
 export const ADDING_CONTRACT_FORM = 'ADDING_CONTRACT_FORM';
+export const DELETING_CONTRACT_FORM = 'DELETING_CONTRACT_FORM';
+export const DELETED_CONTRACT_FORM = 'DELETED_CONTRACT_FORM';
 
 interface ActionTypes {
   SET_CONTRACT_FORMS: object;
   FETCHING_CONTRACT_FORMS: boolean;
   ADDING_CONTRACT_FORM: boolean;
+  DELETING_CONTRACT_FORM: boolean;
+  DELETED_CONTRACT_FORM: boolean;
 }
 
 interface MessageAction {
@@ -47,13 +51,7 @@ export const postContractForm =
     const response = await handleApiRequest(dispatch, utils.Api.post(`/contract-forms`, { ...form }));
 
     if (response?.data) {
-      const { data } = response;
-      console.log(data);
-
-      // dispatch({
-      //   type: SET_CONTRACT_FORMS,
-      //   payload: data,
-      // });
+      dispatch(addingContractForm(false));
     } else {
       // disable the spinner if something goes wrong with the API
       dispatch(addingContractForm(false));
@@ -64,19 +62,20 @@ export const deleteContractForm =
   (formId: any) =>
   async (dispatch: any, _getState = null, utils: any) => {
     // enable the spinner
-    const response = await handleApiRequest(dispatch, utils.Api.post(`/contract-forms/${formId}`));
+
+    dispatch(deletingContractForm(true));
+    console.log({ formId });
+    const response = await handleApiRequest(dispatch, utils.Api.delete(`/contract-forms/${formId}`));
 
     if (response?.data) {
       const { data } = response;
       console.log(data);
 
-      // dispatch({
-      //   type: SET_CONTRACT_FORMS,
-      //   payload: data,
-      // });
+      dispatch(deletedContractForm(true));
     } else {
       // disable the spinner if something goes wrong with the API
-      dispatch(addingContractForm(false));
+      dispatch(deletedContractForm(false));
+      dispatch(deletingContractForm(false));
     }
   };
 
@@ -93,6 +92,20 @@ export const setFetchingContractForms = (value: boolean) => (dispatch) => {
 export const addingContractForm = (value: boolean) => async (dispatch: any) => {
   dispatch({
     type: ADDING_CONTRACT_FORM,
+    payload: value,
+  });
+};
+
+export const deletingContractForm = (value: boolean) => async (dispatch: any) => {
+  dispatch({
+    type: DELETING_CONTRACT_FORM,
+    payload: value,
+  });
+};
+
+export const deletedContractForm = (value: boolean) => async (dispatch: any) => {
+  dispatch({
+    type: DELETED_CONTRACT_FORM,
     payload: value,
   });
 };
