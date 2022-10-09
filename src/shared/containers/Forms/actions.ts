@@ -64,12 +64,10 @@ export const deleteContractForm =
     // enable the spinner
 
     dispatch(deletingContractForm(true));
-    console.log({ formId });
     const response = await handleApiRequest(dispatch, utils.Api.delete(`/contract-forms/${formId}`));
 
     if (response?.data) {
       const { data } = response;
-      console.log(data);
 
       dispatch(deletedContractForm(true));
     } else {
