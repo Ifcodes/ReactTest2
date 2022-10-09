@@ -46,9 +46,7 @@ const AddFormModal = ({ isOpen, setShowModal }: { isOpen: boolean; setShowModal:
 
     dispatch(postContractForm(data));
   };
-  {
-    console.log({ isAddingContract });
-  }
+
   useEffect(() => {
     if (isAddingContract === false) {
       setFormData({ formName: '', requireSignature: false, contractTemplate: '' });
